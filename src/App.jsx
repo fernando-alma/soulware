@@ -14,8 +14,8 @@ import {
   Menu,
   X
 } from 'lucide-react';
-import './index.css';
-import './App.css'; 
+import './index.scss';
+import './App.scss'; 
 
 function App() {
   const [openFaq, setOpenFaq] = useState(null);
