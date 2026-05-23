@@ -1,44 +1,73 @@
-:root {
-  --primary-bg: #000000;
-  --secondary-bg: #000A59;
-  --accent-cyan: #00FFFF;
-  --accent-magenta: #FF00FF;
-  --accent-blue: #05AFF2;
-  --accent-pure-blue: #0000FF;
-  
-  --text-primary: #FFFFFF;
-  --text-secondary: #FAFFFF;
-  --text-muted: #A0A5B5;
-  
-  --glass-bg: rgba(255, 255, 255, 0.02);
-  --glass-border: rgba(255, 255, 255, 0.05);
-  --nav-bg: rgba(0, 0, 0, 0.8);
-  --nav-border: rgba(255, 255, 255, 0.1);
-  --nav-shadow: 0 10px 30px rgba(0, 0, 0, 0.8);
-  --box-texture-lines: rgba(255, 255, 255, 0.03);
-  
-  --noise-texture: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+// ─────────────────────────────────────────────────────────────────────────────
+// _variables.scss
+// Tema Dark Mode estricto: fondo #000000 — texto #FFFFFF — sin colores extra.
+// Fuente exclusiva: 'Roboto' (Google Fonts).
+// ─────────────────────────────────────────────────────────────────────────────
 
-  --font-heading: 'Outfit', sans-serif;
-  --font-body: 'Inter', sans-serif;
+:root {
+  // ── Paleta Modo Claro (Light Mode) ──
+  --primary-bg:        #ffffff;
+  --secondary-bg:      #ffffff;
+
+  --text-primary:      #000000;
+  --text-secondary:    #000000;
+  --text-muted:        rgba(0, 0, 0, 0.55);
+
+  --glass-bg:          rgba(0, 0, 0, 0.03);
+  --glass-border:      rgba(0, 0, 0, 0.1);
+  --nav-bg:            rgba(255, 255, 255, 0.85);
+  --nav-border:        rgba(0, 0, 0, 0.12);
+  --nav-shadow:        0 10px 30px rgba(0, 0, 0, 0.1);
+  --box-texture-lines: rgba(0, 0, 0, 0.04);
+
+  // ── Botones Modo Claro ──
+  --btn-primary-bg:       #000000;
+  --btn-primary-text:     #ffffff;
+  --btn-primary-border:   #000000;
+  --btn-primary-shadow:   #000000;
+
+  --btn-secondary-bg:     transparent;
+  --btn-secondary-text:   #000000;
+  --btn-secondary-border: #000000;
+  --btn-secondary-shadow: #000000;
+
+  // ── Card Modo Claro ──
+  --card-border-color:  #000000;
+  --card-shadow-color:  #000000;
+  --card-shadow-offset: 7px;
+
+  // ── Tipografía ──
+  --font-primary: 'Roboto', sans-serif;
 }
 
-body.light-mode {
-  --primary-bg: #F6F8FA;
-  --secondary-bg: #EAECEF;
-  --text-primary: #111111;
-  --text-secondary: #000000;
-  --text-muted: #4F566B;
-  
-  --accent-cyan: #009999;
-  --accent-magenta: #C200C2;
-  --accent-blue: #0066CC;
-  --accent-pure-blue: #0000AA;
-  
-  --glass-bg: rgba(0, 0, 0, 0.03);
-  --glass-border: rgba(0, 0, 0, 0.08);
-  --nav-bg: rgba(10, 10, 12, 0.95);
-  --nav-border: rgba(255, 255, 255, 0.1);
-  --nav-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
-  --box-texture-lines: rgba(0, 0, 0, 0.05);
+.dark {
+  // ── Paleta Modo Oscuro (Dark Mode) ──
+  --primary-bg:        #000000;
+  --secondary-bg:      #000000;
+
+  --text-primary:      #FFFFFF;
+  --text-secondary:    #FFFFFF;
+  --text-muted:        rgba(255, 255, 255, 0.55);
+
+  --glass-bg:          rgba(255, 255, 255, 0.03);
+  --glass-border:      rgba(255, 255, 255, 0.1);
+  --nav-bg:            rgba(0, 0, 0, 0.85);
+  --nav-border:        rgba(255, 255, 255, 0.12);
+  --nav-shadow:        0 10px 30px rgba(0, 0, 0, 0.8);
+  --box-texture-lines: rgba(255, 255, 255, 0.04);
+
+  // ── Botones Modo Oscuro ──
+  --btn-primary-bg:       #ffffff;
+  --btn-primary-text:     #000000;
+  --btn-primary-border:   #ffffff;
+  --btn-primary-shadow:   #ffffff;
+
+  --btn-secondary-bg:     transparent;
+  --btn-secondary-text:   #ffffff;
+  --btn-secondary-border: #ffffff;
+  --btn-secondary-shadow: #ffffff;
+
+  // ── Card Modo Oscuro ──
+  --card-border-color:  #FFFFFF;
+  --card-shadow-color:  #FFFFFF;
 }

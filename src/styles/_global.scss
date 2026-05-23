@@ -1,3 +1,9 @@
+// ─────────────────────────────────────────────────────────────────────────────
+// _global.scss
+// Estilos base del proyecto. Dark Mode estricto: #000000 / #FFFFFF.
+// Fuente: 'Roboto' exclusivamente.
+// ─────────────────────────────────────────────────────────────────────────────
+
 * {
   margin: 0;
   padding: 0;
@@ -8,44 +14,20 @@ html {
   scroll-behavior: smooth;
 }
 
-/* Texture Noise Overlay */
-body::before {
-  content: "";
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  pointer-events: none;
-  z-index: 9999;
-  opacity: 0.08;
-  background-image: var(--noise-texture);
-}
-
-body.light-mode::before {
-  opacity: 0.05;
-}
-
 body {
-  font-family: var(--font-body);
+  font-family: var(--font-primary);
   background-color: var(--primary-bg);
-  background-image: radial-gradient(rgba(255, 255, 255, 0.1) 1px, transparent 1px);
-  background-position: 0 0;
-  background-size: 30px 30px;
   color: var(--text-primary);
   line-height: 1.6;
   overflow-x: hidden;
-  transition: background-color 0.4s ease, color 0.4s ease;
-}
-
-body.light-mode {
-  background-color: var(--primary-bg);
-  background-image: radial-gradient(rgba(0, 0, 0, 0.08) 1px, transparent 1px);
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: var(--font-heading);
+  font-family: var(--font-primary);
   line-height: 1.2;
+  color: var(--text-primary);
+  transition: color 0.3s ease;
 }
 
 a {
@@ -61,73 +43,80 @@ button {
   cursor: pointer;
   border: none;
   outline: none;
-  font-family: var(--font-heading);
+  font-family: var(--font-primary);
 }
 
-/* Utilities */
+// ── Utilities ─────────────────────────────────────────────────────────────────
+
 .container {
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 1.5rem;
 }
 
-.text-gradient {
-  background: linear-gradient(90deg, var(--accent-cyan), var(--accent-magenta));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  color: transparent;
-}
-
+// Botón primario: dinámico + neobrutalist
 .btn-primary {
-  background: var(--accent-cyan);
-  color: var(--primary-bg);
+  background-color: var(--btn-primary-bg);
+  color: var(--btn-primary-text);
   padding: 1rem 2rem;
-  border-radius: 50px;
+  border: 2px solid var(--btn-primary-border);
   font-weight: 700;
   font-size: 1.1rem;
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: 0.5rem;
-  transition: all 0.3s ease;
-  box-shadow: 0 0 15px rgba(0, 255, 255, 0.4);
+  transition: all 0.2s ease, background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 5px 5px 0 0 var(--btn-primary-shadow);
+  border-radius: 0;
+  font-family: var(--font-primary);
+
+  &:hover {
+    background-color: var(--btn-primary-text);
+    color: var(--btn-primary-bg);
+    border-color: var(--btn-primary-border);
+    transform: translate(-3px, -3px);
+    box-shadow: 8px 8px 0 0 var(--btn-primary-shadow);
+  }
+
+  &:active {
+    transform: translate(2px, 2px);
+    box-shadow: 0 0 0 0 var(--btn-primary-shadow);
+  }
 }
 
-body.light-mode .btn-primary {
-  color: #fff;
-}
-
-.btn-primary:hover {
-  background: var(--text-primary);
-  color: var(--primary-bg);
-  transform: translateY(-3px);
-  box-shadow: 0 0 25px rgba(0, 255, 255, 0.8);
-}
-
+// Botón secundario: transparente + borde dinámico
 .btn-secondary {
-  background: transparent;
-  color: var(--text-primary);
-  border: 2px solid var(--accent-magenta);
+  background-color: var(--btn-secondary-bg);
+  color: var(--btn-secondary-text);
+  border: 2px solid var(--btn-secondary-border);
   padding: 1rem 2rem;
-  border-radius: 50px;
   font-weight: 700;
   font-size: 1.1rem;
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: 0.5rem;
-  transition: all 0.3s ease;
+  transition: all 0.2s ease, background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+  border-radius: 0;
+  font-family: var(--font-primary);
+  box-shadow: 5px 5px 0 0 var(--btn-secondary-shadow);
+
+  &:hover {
+    background-color: var(--btn-secondary-text);
+    color: var(--btn-primary-text);
+    border-color: var(--btn-secondary-border);
+    transform: translate(-3px, -3px);
+    box-shadow: 8px 8px 0 0 var(--btn-secondary-shadow);
+  }
+
+  &:active {
+    transform: translate(2px, 2px);
+    box-shadow: 0 0 0 0 var(--btn-secondary-shadow);
+  }
 }
 
-.btn-secondary:hover {
-  background: var(--accent-magenta);
-  color: #fff;
-  box-shadow: 0 0 20px rgba(255, 0, 255, 0.5);
-  transform: translateY(-3px);
-}
-
-/* Layout Classes */
+// ── Layout ────────────────────────────────────────────────────────────────────
 section {
   padding: 8rem 0;
   position: relative;
@@ -137,7 +126,9 @@ section {
   font-size: 3.5rem;
   margin-bottom: 1.5rem;
   text-align: center;
-  font-weight: 800;
+  font-weight: 900;
+  color: var(--text-primary);
+  transition: color 0.3s ease;
 }
 
 .section-subtitle {
@@ -148,28 +139,24 @@ section {
   margin: 0 auto 4rem;
 }
 
-/* Animations */
-@keyframes marquee {
-  0% { transform: translateX(0); }
-  100% { transform: translateX(-50%); }
-}
-
-@keyframes laserShoot {
-  0% { background-position: 200% 0; }
-  100% { background-position: -200% 0; }
-}
-
-/* Scrollbar */
+// ── Scrollbar ─────────────────────────────────────────────────────────────────
 ::-webkit-scrollbar {
-  width: 10px;
+  width: 8px;
 }
 ::-webkit-scrollbar-track {
   background: var(--primary-bg);
+  transition: background-color 0.3s ease;
 }
 ::-webkit-scrollbar-thumb {
   background: var(--text-muted);
-  border-radius: 5px;
+  border-radius: 0;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--accent-blue);
+  background: var(--text-primary);
+}
+
+// ── Animaciones globales ──────────────────────────────────────────────────────
+@keyframes marquee {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
 }

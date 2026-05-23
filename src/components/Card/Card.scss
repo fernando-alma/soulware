@@ -1,0 +1,119 @@
+// ─────────────────────────────────────────────────────────────────────────────
+// Card.scss  —  Sistema de tarjetas canónico
+// Paleta: fondo #000000 · texto #FFFFFF · borde/sombra #FFFFFF
+// Hover: translateX(-4px) + box-shadow 6px 6px 0 0 #fff (persistente)
+// ─────────────────────────────────────────────────────────────────────────────
+
+// ── Tokens ────────────────────────────────────────────────────────────────────
+$card-bg:            var(--primary-bg);
+$card-color:         var(--text-primary);
+$card-border:        2px solid var(--card-border-color);
+$card-shadow:        6px 6px 0 0 var(--card-shadow-color);    // sombra lateral canónica
+$card-shadow-hover:  10px 10px 0 0 var(--card-shadow-color);  // sombra en hover (se agranda)
+$card-radius:        0px;                    // rectangular estricto
+$card-font:          'Roboto', sans-serif;
+
+// Dimensiones compartidas — todas las cards del sitio usan estas medidas
+$card-min-height:       400px;
+$card-pad-default:      2.5rem 2rem;
+$card-pad-compact:      1.75rem 1.5rem;
+
+// ── Transición global de la card ──────────────────────────────────────────────
+$card-transition: transform 0.22s ease, box-shadow 0.22s ease, background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+
+// ── Base ──────────────────────────────────────────────────────────────────────
+.card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  min-height: $card-min-height;
+  background-color: $card-bg;
+  color: $card-color;
+  border: $card-border;
+  border-radius: $card-radius;
+  box-shadow: $card-shadow;
+  font-family: $card-font;
+  transition: $card-transition;
+
+  // ── Hover universal: slide izquierda + sombra ampliada ────────────────────
+  &:hover {
+    transform: translateX(-4px);
+    box-shadow: $card-shadow-hover;
+  }
+
+  // ── Variantes CVA ─────────────────────────────────────────────────────────
+  &.card--default {
+    // base cubre el default completo
+  }
+
+  &.card--featured {
+    border-width: 3px;
+    box-shadow: 8px 8px 0 0 #ffffff;
+
+    &:hover {
+      box-shadow: $card-shadow-hover;
+    }
+  }
+
+  // Step: cards de metodología — misma altura que default, centradas
+  &.card--step {
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    min-height: $card-min-height;
+    padding: $card-pad-compact;
+    flex: 1;  // ocupan mismo ancho en el flex/grid
+  }
+
+  // Project: cards de portfolio — estáticas, sin flip
+  &.card--project {
+    min-height: $card-min-height;
+    padding: $card-pad-default;
+    justify-content: flex-end; // título abajo, descripción arriba
+  }
+
+  // ── Tamaños CVA ───────────────────────────────────────────────────────────
+  &.card--size-default {
+    padding: $card-pad-default;
+  }
+
+  &.card--size-compact {
+    padding: $card-pad-compact;
+    min-height: 340px;
+  }
+}
+
+// ── Sub-componentes ───────────────────────────────────────────────────────────
+.card__header {
+  margin-bottom: 1.25rem;
+}
+
+.card__body {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.card__footer {
+  margin-top: auto;
+  padding-top: 1.5rem;
+}
+
+.card__title {
+  font-family: $card-font;
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 0.4rem;
+  line-height: 1.2;
+  transition: color 0.3s ease;
+}
+
+.card__description {
+  font-family: $card-font;
+  font-size: 0.95rem;
+  color: var(--text-muted);
+  line-height: 1.65;
+  transition: color 0.3s ease;
+}

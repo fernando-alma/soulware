@@ -1,0 +1,40 @@
+// ─────────────────────────────────────────────────────────────────────────────
+// ThemeToggle.scss
+// Estilo para el botón de cambio de tema (Dark/Light).
+// Neobrutalista: borde sólido de 2px, sin curvas complejas o rectangular.
+// ─────────────────────────────────────────────────────────────────────────────
+
+.theme-toggle-btn {
+  background-color: var(--primary-bg);
+  color: var(--text-primary);
+  border: 2px solid var(--card-border-color);
+  width: 42px;
+  height: 42px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease, background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+  box-shadow: 3px 3px 0 0 var(--card-shadow-color);
+  padding: 0;
+
+  .theme-icon {
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  }
+
+  &:hover {
+    transform: translate(-2px, -2px);
+    box-shadow: 5px 5px 0 0 var(--card-shadow-color);
+    background-color: var(--text-primary);
+    color: var(--primary-bg);
+
+    .theme-icon {
+      transform: rotate(45deg) scale(1.1);
+    }
+  }
+
+  &:active {
+    transform: translate(1px, 1px);
+    box-shadow: 1px 1px 0 0 var(--card-shadow-color);
+  }
+}
