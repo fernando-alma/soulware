@@ -1,0 +1,18 @@
+# Ignorar dependencias de Node
+node_modules/
+npm-debug.log
+
+# Ignorar compilaciones locales
+dist/
+build/
+
+# Ignorar configuración de entorno y archivos Git
+.env
+.git
+.gitignore
+
+# Ignorar archivos de Docker y configuración local
+Dockerfile
+.dockerignore
+eslint.config.js
+README.md
