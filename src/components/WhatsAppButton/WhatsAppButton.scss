@@ -1,0 +1,49 @@
+// ─────────────────────────────────────────────────────────────────────────────
+// WhatsAppButton.scss
+// Estilo para el botón flotante de WhatsApp.
+// Posición fija en la esquina inferior derecha, color verde oficial con animación de pulso.
+// ─────────────────────────────────────────────────────────────────────────────
+
+.whatsapp-float {
+  position: fixed; // Mantiene el botón fijo al hacer scroll
+  bottom: 25px;    // Distancia desde abajo
+  right: 25px;     // Distancia desde la derecha
+  background-color: #25d366; // Color verde WhatsApp
+  color: #ffffff;
+  border-radius: 50%; // Forma circular
+  width: 60px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999; // Asegura que esté siempre encima de todo
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+  text-decoration: none;
+
+  .whatsapp-icon {
+    font-size: 32px;
+    display: block;
+  }
+
+  &:hover {
+    transform: scale(1.1); // Pequeño efecto de zoom al pasar el mouse
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.4);
+    background-color: #20ba5a; // Verde un poco más oscuro
+  }
+
+  // Animación de pulso suave
+  animation: whatsapp-pulse 2s infinite;
+}
+
+@keyframes whatsapp-pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7);
+  }
+  70% {
+    box-shadow: 0 0 0 15px rgba(37, 211, 102, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
+  }
+}

@@ -1,4 +1,8 @@
-/* Mixins globales útiles */
+// ─────────────────────────────────────────────────────────────────────────────
+// _mixins.scss
+// Mixins globales — paleta dark mode estricto #000000 / #FFFFFF.
+// ─────────────────────────────────────────────────────────────────────────────
+
 @mixin flex-center {
   display: flex;
   align-items: center;
@@ -11,27 +15,26 @@
   align-items: center;
 }
 
-@mixin neon-border {
-  position: relative;
-  &::before {
-    content: "";
-    position: absolute;
-    inset: -1px;
-    border-radius: 17px;
-    background: linear-gradient(45deg, var(--accent-cyan), var(--accent-magenta), var(--accent-blue));
-    z-index: -1;
-    opacity: 0.3;
-    filter: blur(5px);
+// Borde + box-shadow neobrutalist en blanco
+@mixin neo-card($offset: 7px) {
+  border: 2px solid #FFFFFF;
+  box-shadow: #{$offset}px #{$offset}px 0 0 #FFFFFF;
+  border-radius: 0;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+
+  &:hover {
+    transform: translate(-3px, -3px);
+    box-shadow: #{$offset + 5}px #{$offset + 5}px 0 0 #FFFFFF;
   }
 }
 
+// Panel de vidrio sin color extra
 @mixin glass-panel {
   background-color: var(--glass-bg);
-  background-image: linear-gradient(var(--box-texture-lines) 1px, transparent 1px), linear-gradient(90deg, var(--box-texture-lines) 1px, transparent 1px);
-  background-size: 15px 15px;
   border: 1px solid var(--glass-border);
 }
 
+// ── Breakpoints ───────────────────────────────────────────────────────────────
 @mixin media-tablet {
   @media (max-width: 1024px) { @content; }
 }

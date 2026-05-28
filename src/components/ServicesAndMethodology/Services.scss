@@ -1,0 +1,133 @@
+// ─────────────────────────────────────────────────────────────────────────────
+// Services.scss
+// Sección Servicios + Metodología de Trabajo.
+// Dinámico: adaptable a Light / Dark Mode.
+// ─────────────────────────────────────────────────────────────────────────────
+
+.services-methodology {
+  padding: 100px 0;
+  background-color: var(--primary-bg);
+  color: var(--text-primary);
+  font-family: 'Roboto', sans-serif;
+  transition: background-color 0.3s ease, color 0.3s ease;
+
+  // ── Grid de servicios — 4 columnas ────────────────────────────────────────
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.75rem;
+    margin-bottom: 5rem;
+    align-items: stretch;
+
+    @media (max-width: 1024px) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @media (max-width: 768px) {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  // ── Ícono y título dentro de la service-card ──────────────────────────────
+  .service-icon {
+    color: var(--text-primary);
+    margin-bottom: 1.25rem;
+    display: flex;
+    justify-content: center;
+    transition: color 0.3s ease;
+  }
+
+  .service-title {
+    text-align: center;
+  }
+
+  // ── Metodología — flowchart original ─────────────────────────────────────
+  .methodology-section {
+    .methodology-title {
+      font-family: 'Roboto', sans-serif;
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: var(--text-primary);
+      margin-bottom: 2rem;
+      text-align: center;
+      transition: color 0.3s ease;
+    }
+
+    .flowchart {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+
+    .flow-step {
+      background: var(--glass-bg);
+      border: 2px solid var(--card-border-color);
+      padding: 1.5rem 1rem;
+      border-radius: 0;
+      flex: 1;
+      text-align: center;
+      position: relative;
+      transition: background-color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease, transform 0.25s ease;
+
+      &:hover {
+        background: var(--glass-bg);
+        border-color: var(--card-border-color);
+        box-shadow: 6px 6px 0 0 var(--card-shadow-color);
+        transform: translateX(-4px);
+      }
+
+      .step-number {
+        position: absolute;
+        top: -12px;
+        left: 50%;
+        transform: translateX(-50%);
+        background: var(--text-primary);
+        color: var(--primary-bg);
+        border: 2px solid var(--card-border-color);
+        width: 26px;
+        height: 26px;
+        border-radius: 0;
+        font-weight: bold;
+        font-size: 0.8rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-family: 'Roboto', sans-serif;
+        transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+      }
+
+      .step-title {
+        color: var(--text-primary);
+        font-size: 0.9rem;
+        font-weight: 500;
+        font-family: 'Roboto', sans-serif;
+        line-height: 1.4;
+        padding-top: 0.25rem;
+        transition: color 0.3s ease;
+      }
+    }
+
+    .flow-arrow {
+      color: var(--card-border-color);
+      flex-shrink: 0;
+      transition: color 0.3s ease;
+    }
+  }
+
+  // ── Responsive ────────────────────────────────────────────────────────────
+  @media (max-width: 1024px) {
+    .methodology-section .flowchart {
+      flex-direction: column;
+      gap: 2rem;
+
+      .flow-arrow {
+        transform: rotate(90deg);
+      }
+
+      .flow-step {
+        width: 100%;
+      }
+    }
+  }
+}
