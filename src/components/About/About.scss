@@ -10,7 +10,7 @@
   transition: background-color 0.3s ease, color 0.3s ease;
 
   .section-title {
-    font-size: 2.5rem;
+    font-size: clamp(2rem, 5vw, 2.5rem);
     font-weight: 900;
     color: var(--text-primary);
     margin-bottom: 2rem;
@@ -40,7 +40,7 @@
   // ── Testimonials ───────────────────────────────────────────────────────────
   .testimonials-section {
     h3 {
-      font-size: 2rem;
+      font-size: clamp(1.6rem, 4vw, 2rem);
       font-weight: 700;
       color: var(--text-primary);
       text-align: center;

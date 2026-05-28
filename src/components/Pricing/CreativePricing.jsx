@@ -133,14 +133,15 @@ const CreativePricing = ({
                     ))}
                   </ul>
 
-                  {/* Action Button */}
-                  <button
+                  {/* Action Button — redirige al formulario de contacto */}
+                  <a
+                    href="#contacto"
                     className={`btn-pricing-action ${
                       tier.popular ? 'popular-btn' : 'standard-btn'
                     }`}
                   >
                     Comenzar Proyecto
-                  </button>
+                  </a>
                 </div>
               </div>
             );

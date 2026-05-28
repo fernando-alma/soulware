@@ -11,8 +11,8 @@ const Hero = () => {
             Construimos soluciones tecnológicas escalables combinando ingeniería de software avanzada, gestión ágil de proyectos y control de calidad integral, con un enfoque estricto en ciberseguridad y trazabilidad.
           </p>
           <div className="hero-buttons">
-            <button className="btn-primary">Agenda una reunión sin costo</button>
-            <button className="btn-secondary">Explora nuestros Servicios</button>
+            <a href="#contacto" className="btn-primary">Agenda una reunión sin costo</a>
+            <a href="#servicios" className="btn-secondary">Explora nuestros Servicios</a>
           </div>
         </div>
         <div className="hero-visual">

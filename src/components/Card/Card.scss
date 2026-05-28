@@ -82,6 +82,14 @@ $card-transition: transform 0.22s ease, box-shadow 0.22s ease, background-color 
     padding: $card-pad-compact;
     min-height: 340px;
   }
+
+  @media (max-width: 768px) {
+    min-height: 300px;
+
+    &.card--size-compact {
+      min-height: 240px;
+    }
+  }
 }
 
 // ── Sub-componentes ───────────────────────────────────────────────────────────

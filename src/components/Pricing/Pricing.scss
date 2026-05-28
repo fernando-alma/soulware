@@ -58,7 +58,7 @@ $card-offset-hover: 12px;
 
     .pricing-title {
       font-family: 'Roboto', sans-serif;
-      font-size: 3.5rem;
+      font-size: clamp(2rem, 5vw, 3.5rem);
       font-weight: 900;
       color: $white;
       position: relative;
@@ -304,7 +304,7 @@ $card-offset-hover: 12px;
     }
   }
 
-  // ── Action Button ──────────────────────────────────────────────────────────
+  // ── Action Button ──────────────────────────────────────────────────
   .btn-pricing-action {
     width: 100%;
     height: 52px;
@@ -319,16 +319,21 @@ $card-offset-hover: 12px;
     display: flex;
     align-items: center;
     justify-content: center;
+    text-decoration: none;   /* anula el subrayado nativo del <a> */
+    text-align: center;
 
+    // Tarjetas 1 y 3: fondo transparente, texto blanco
     &.standard-btn {
       background-color: transparent;
       color: $white;
-      box-shadow: 4px 4px 0 0 $white;
+      // Sombra canonónica del sistema de tarjetas (6px)
+      box-shadow: 6px 6px 0 0 $white;
 
       &:hover {
         transform: translate(-2px, -2px);
-        box-shadow: 7px 7px 0 0 $white;
-        background-color: rgba(255, 255, 255, 0.06);
+        box-shadow: 10px 10px 0 0 $white;
+        background-color: $white;
+        color: $black;
       }
 
       &:active {
@@ -337,16 +342,22 @@ $card-offset-hover: 12px;
       }
     }
 
+    // Tarjeta central (popular): fondo blanco, texto negro
+    // FIX: en hover se invierte — fondo negro, texto blanco — sin perder legibilidad
     &.popular-btn {
       background-color: $white;
       color: $black;
       border-color: $white;
-      box-shadow: 4px 4px 0 0 rgba(255, 255, 255, 0.4);
+      // Sombra canónica del sistema de tarjetas (6px)
+      box-shadow: 6px 6px 0 0 var(--card-shadow-color);
 
       &:hover {
         transform: translate(-2px, -2px);
-        box-shadow: 7px 7px 0 0 rgba(255, 255, 255, 0.5);
-        background-color: rgba(255, 255, 255, 0.9);
+        box-shadow: 10px 10px 0 0 var(--card-shadow-color);
+        // Inversión total: fondo oscuro + texto claro — siempre legible
+        background-color: $black;
+        color: $white;
+        border-color: $white;
       }
 
       &:active {

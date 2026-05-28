@@ -15,9 +15,9 @@
   }
 
   h1 {
-    font-size: 3.5rem;
+    font-size: clamp(2.2rem, 6vw, 3.5rem);
     font-weight: 900;
-    line-height: 1.1;
+    line-height: 1.15;
     margin-bottom: 1.5rem;
     color: #fff;
   }
@@ -32,7 +32,17 @@
   .hero-buttons {
     display: flex;
     gap: 1rem;
-    
+
+    @media (max-width: 576px) {
+      flex-direction: column;
+      width: 100%;
+      align-items: stretch;
+
+      .btn-primary, .btn-secondary {
+        width: 100%;
+        justify-content: center;
+      }
+    }
     .btn-primary {
       background: transparent;
       color: #ffffff;

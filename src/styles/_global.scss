@@ -12,6 +12,8 @@
 
 html {
   scroll-behavior: smooth;
+  /* Compensa el navbar fijo de 80px para que los anclas no queden ocultos */
+  scroll-padding-top: 80px;
 }
 
 body {
@@ -46,12 +48,23 @@ button {
   font-family: var(--font-primary);
 }
 
+/* Imágenes responsivas por defecto */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
 // ── Utilities ─────────────────────────────────────────────────────────────────
 
 .container {
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 1.5rem;
+
+  @media (max-width: 480px) {
+    padding: 0 1rem;
+  }
 }
 
 // Botón primario: dinámico + neobrutalist
@@ -116,14 +129,22 @@ button {
   }
 }
 
-// ── Layout ────────────────────────────────────────────────────────────────────
+// ── Layout ───────────────────────────────────────────────────────────────────────
 section {
   padding: 8rem 0;
   position: relative;
+
+  @media (max-width: 768px) {
+    padding: 5rem 0;
+  }
+
+  @media (max-width: 480px) {
+    padding: 4rem 0;
+  }
 }
 
 .section-title {
-  font-size: 3.5rem;
+  font-size: clamp(2.2rem, 6vw, 3.5rem);
   margin-bottom: 1.5rem;
   text-align: center;
   font-weight: 900;
