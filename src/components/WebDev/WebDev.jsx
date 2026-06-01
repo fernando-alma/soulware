@@ -7,7 +7,7 @@ const features = [
     desc: "Con una interfaz de navegación centrada en el usuario, impulsamos tu conversión."
   },
   {
-    title: "Calidad y Trazabilidad",
+    title: "QA y Trazabilidad",
     desc: "Monitoreo, testing continuo de procesos y un log comprensible."
   },
   {
