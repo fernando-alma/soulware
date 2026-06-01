@@ -1,11 +1,10 @@
 import React from 'react';
-import { Pencil, Star, Sparkles, Check } from "lucide-react";
+import { Check } from "lucide-react";
 import './Pricing.scss';
 
 const webDevTiers = [
   {
       name: "Landing Page",
-      icon: <Pencil className="w-6 h-6" />,
       price: 299,
       description: "Perfecto para lanzar tu producto o servicio rápidamente",
       color: "cyan",
@@ -19,7 +18,6 @@ const webDevTiers = [
   },
   {
       name: "Web Profesional",
-      icon: <Star className="w-6 h-6" />,
       price: 699,
       description: "Sitio web completo e interactivo para tu negocio o PYME",
       color: "magenta",
@@ -34,7 +32,6 @@ const webDevTiers = [
   },
   {
       name: "E-Commerce Pro",
-      icon: <Sparkles className="w-6 h-6" />,
       price: 1299,
       description: "Tienda online robusta y escalable con panel autoadministrable",
       color: "blue",
@@ -100,10 +97,8 @@ const CreativePricing = ({
                     </div>
                   )}
 
+                  {/* Card header: título y descripción sin ícono decorativo */}
                   <div className="card-header-block">
-                    <div className={`icon-container ${tier.color}`}>
-                      {tier.icon}
-                    </div>
                     <h3 className="card-tier-name">
                       {tier.name}
                     </h3>
@@ -148,11 +143,6 @@ const CreativePricing = ({
           })}
         </div>
 
-        {/* Creative Annotations / Doodles in the section */}
-        <div className="creative-decorations">
-          <div className="doodle doodle-top">✎</div>
-          <div className="doodle doodle-bottom">✏️</div>
-        </div>
       </div>
     </section>
   );

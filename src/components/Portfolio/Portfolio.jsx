@@ -34,10 +34,30 @@ const projects = [
 ];
 
 const webs = [
-  { name: "GamerStore", image: "/assets/portfolio/gamerstore.png" },
-  { name: "Termetsa", image: "/assets/portfolio/termetsa.png" },
-  { name: "Casita de Flor", image: "/assets/portfolio/casitadeflor.png" },
-  { name: "Victoria SM", image: "/assets/portfolio/victorism.png" }
+  {
+    name: "GamerStore",
+    desc: "Tienda de hardware y periféricos de última generación.",
+    link: "https://gamerstore-genezis.vercel.app/",
+    image: "/assets/portfolio/gamerstore.png"
+  },
+  {
+    name: "Termet SA",
+    desc: "Web institucional de ingeniería en refrigeración y procesos.",
+    link: "https://termetsa.com.ar/",
+    image: "/assets/portfolio/termetsa.png"
+  },
+  {
+    name: "Casita de Flor",
+    desc: "E-commerce de arreglos florales y regalos especiales.",
+    link: "https://casitadeflor.com/",
+    image: "/assets/portfolio/casitadeflor.png"
+  },
+  {
+    name: "Victoria SM",
+    desc: "Web de sport management y representación deportiva.",
+    link: "https://victoriasm.com.ar/",
+    image: "/assets/portfolio/victorism.png"
+  }
 ];
 
 const Portfolio = () => {
@@ -72,11 +92,25 @@ const Portfolio = () => {
           {webs.map((web, idx) => (
             <div key={idx} className="web-link-wrapper">
               <Card variant="default" size="compact" className="web-card-item">
+                {/* Imagen superior */}
                 <div className="web-card-image">
                   <img src={web.image} alt={web.name} loading="lazy" />
                 </div>
+
+                {/* Bloque inferior: título + descripción + botón */}
                 <CardBody>
                   <CardTitle className="web-card-name">{web.name}</CardTitle>
+                  <CardDescription className="web-card-desc">{web.desc}</CardDescription>
+                  {/* Botón con el mismo estilo que "Ver Perfil" del componente Team */}
+                  <a
+                    href={web.link}
+                    className="team-card__link web-card-link"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={`Ver sitio de ${web.name}`}
+                  >
+                    Ver sitio →
+                  </a>
                 </CardBody>
               </Card>
             </div>

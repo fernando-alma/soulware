@@ -1,27 +1,30 @@
 // ─────────────────────────────────────────────────────────────────────────────
 // _backgrounds.scss
-// Clases de fondo. Paleta estricta: #000000 / #FFFFFF.
-// Sin gradientes de color — solo puntos blancos semitransparentes como textura.
+// Clases de fondo. Dinámicas: se adaptan a Light / Dark Mode.
 // ─────────────────────────────────────────────────────────────────────────────
 
+// Fondo principal del tema (negro en dark, blanco en light)
 .bg-a-black {
-  background-color: #000000;
-  color: #FFFFFF;
+  background-color: var(--primary-bg);
+  color: var(--text-primary);
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-// Fondo negro con patrón de puntos blancos muy sutiles
+// Fondo con patrón de puntos — dinámico según tema
 .bg-b-dots-radial {
   position: relative;
-  background-color: #000000;
-  color: #FFFFFF;
+  background-color: var(--primary-bg);
+  color: var(--text-primary);
   overflow: hidden;
+  transition: background-color 0.3s ease, color 0.3s ease;
 
   &::before {
     content: '';
     position: absolute;
     inset: 0;
     pointer-events: none;
-    background-image: radial-gradient(rgba(255, 255, 255, 0.12) 1px, transparent 1px);
+    // En dark: puntos blancos; en light: puntos negros muy sutiles
+    background-image: radial-gradient(var(--box-texture-lines) 1px, transparent 1px);
     background-size: 14px 14px;
     z-index: 0;
   }

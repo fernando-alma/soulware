@@ -5,7 +5,7 @@ import './WhatsAppButton.scss';
 const WhatsAppButton = () => {
   return (
     <a
-      href="https://wa.me/5492613865615" // Puedes cambiar este número por el oficial de Soulware
+      href="https://wa.me/5492615407274"
       target="_blank"
       rel="noopener noreferrer"
       className="whatsapp-float"

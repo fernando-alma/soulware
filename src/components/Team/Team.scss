@@ -45,23 +45,23 @@
   transition: color 0.3s ease;
 }
 
-// ── Grid 3 columnas ───────────────────────────────────────────────────────────
+// ── Grid 4 columnas ───────────────────────────────────────────────────────────
 .team-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 2.5rem;
-  align-items: stretch;  // todas las tarjetas ocupan el mismo alto
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1.5rem;
+  align-items: stretch;
 
-  // Tablet: 2 columnas
-  @media (max-width: 1024px) {
+  // Tablet grande: 2 columnas
+  @media (max-width: 1100px) {
     grid-template-columns: repeat(2, 1fr);
     gap: 2rem;
   }
 
   // Móvil: 1 columna
-  @media (max-width: 768px) {
+  @media (max-width: 600px) {
     grid-template-columns: 1fr;
-    gap: 2rem;
+    gap: 1.5rem;
     max-width: 480px;
     margin: 0 auto;
   }
@@ -73,19 +73,19 @@
 }
 
 .team-card__avatar {
-  width: 56px;
-  height: 56px;
+  width: 48px;
+  height: 48px;
   border: 2px solid var(--card-border-color);
   display: flex;
   align-items: center;
   justify-content: center;
   font-family: 'Roboto', sans-serif;
-  font-size: 1.2rem;
+  font-size: 1rem;
   font-weight: 700;
   color: var(--text-primary);
   background-color: var(--primary-bg);
   letter-spacing: 0.05em;
-  margin-bottom: 1.25rem;
+  margin-bottom: 1rem;
   flex-shrink: 0;
   border-radius: 0;
   transition: border-color 0.3s ease, color 0.3s ease, background-color 0.3s ease;
