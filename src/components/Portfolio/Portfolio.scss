@@ -130,12 +130,12 @@ $muted: rgba(255, 255, 255, 0.55);
     }
   }
 
-  // ── Grid de webs — 4 columnas (Compactas) ─────────────────────────────────
+  // ── Grid de webs — 4 columnas fijas en desktop ─────────────────────────────
   .webs-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 1.75rem;
-    align-items: stretch;
+    align-items: stretch; // Todas las celdas estiran a la misma altura
 
     @media (max-width: 992px) {
       grid-template-columns: repeat(2, 1fr);
@@ -149,23 +149,24 @@ $muted: rgba(255, 255, 255, 0.55);
   .web-link-wrapper {
     text-decoration: none;
     color: inherit;
-    display: flex;
+    display: flex;   // Permite que el hijo (.web-card-item) ocupe todo el alto
   }
 
   .web-card-item {
-    padding: 0 !important; // Para que la imagen quede al ras
+    padding: 0 !important;          // Imagen al ras del borde superior
     min-height: auto !important;
-    height: 100%;
+    height: 100%;                   // Ocupa toda la celda del grid
     display: flex;
-    flex-direction: column;
+    flex-direction: column;         // Imagen arriba, contenido abajo
     overflow: hidden;
 
-    // Contenedor de la imagen
+    // Imagen superior
     .web-card-image {
       width: 100%;
       height: 180px;
       overflow: hidden;
       border-bottom: 2px solid var(--card-border-color);
+      flex-shrink: 0;               // La imagen no se comprime
       transition: border-color 0.3s ease;
 
       img {
@@ -182,20 +183,39 @@ $muted: rgba(255, 255, 255, 0.55);
       }
     }
 
-    // Contenedor del nombre (CardBody)
+    // CardBody: columna con espacio entre elementos para alinear botón al fondo
     .card__body {
-      padding: 1.25rem 1.5rem !important;
+      padding: 1.25rem 1.5rem 1.5rem !important;
       display: flex;
-      align-items: center;
-      justify-content: space-between;
+      flex-direction: column;
+      justify-content: space-between; // Título + desc arriba, botón abajo
+      flex: 1;                        // Ocupa el espacio restante de la tarjeta
+      gap: 0.75rem;
     }
 
+    // Título del proyecto web
     .web-card-name {
       font-size: 1.1rem;
       font-weight: 700;
       color: var(--text-primary);
       margin: 0;
       transition: color 0.3s ease;
+    }
+
+    // Descripción debajo del título
+    .web-card-desc {
+      font-size: 0.875rem;
+      color: var(--text-muted);
+      line-height: 1.55;
+      margin: 0;
+      flex-grow: 1;                   // Empuja el botón hacia abajo
+      transition: color 0.3s ease;
+    }
+
+    // Botón "Ver sitio" — hereda la clase .team-card__link + overrides mínimos
+    .web-card-link {
+      margin-top: auto;               // Garantiza alineación al fondo en cualquier altura
+      align-self: flex-start;         // No ocupa todo el ancho
     }
   }
 }

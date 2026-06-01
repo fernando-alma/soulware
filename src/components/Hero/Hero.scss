@@ -4,6 +4,8 @@
   align-items: center;
   padding-top: 80px; /* offset navbar */
 
+  // El fondo ya lo gestiona .bg-a-black → var(--primary-bg)
+
   .hero-container {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -14,21 +16,26 @@
     padding: 0 20px;
   }
 
+  // ── Título principal ─────────────────────────────────────────────────────────
   h1 {
     font-size: clamp(2.2rem, 6vw, 3.5rem);
     font-weight: 900;
     line-height: 1.15;
     margin-bottom: 1.5rem;
-    color: #fff;
+    color: var(--text-primary);        // #000 en light / #fff en dark
+    transition: color 0.3s ease;
   }
 
+  // ── Subtexto ─────────────────────────────────────────────────────────────────
   p {
     font-size: 1.1rem;
-    color: rgba(255, 255, 255, 0.55);
+    color: var(--text-muted);          // rgba oscuro en light / rgba claro en dark
     margin-bottom: 2.5rem;
     line-height: 1.6;
+    transition: color 0.3s ease;
   }
 
+  // ── Botones ──────────────────────────────────────────────────────────────────
   .hero-buttons {
     display: flex;
     gap: 1rem;
@@ -43,50 +50,64 @@
         justify-content: center;
       }
     }
+
+    // Botón primario — fondo transparente, borde y texto del tema
     .btn-primary {
       background: transparent;
-      color: #ffffff;
+      color: var(--text-primary);
       padding: 1rem 2rem;
-      border: 2px solid #ffffff;
+      border: 2px solid var(--card-border-color);
       border-radius: 0;
       font-weight: bold;
       cursor: pointer;
-      box-shadow: 5px 5px 0 0 #ffffff;
-      transition: all 0.2s ease;
-      
+      box-shadow: 5px 5px 0 0 var(--card-shadow-color);
+      transition: all 0.2s ease, background-color 0.3s ease,
+                  color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+
       &:hover {
-        background: #ffffff;
-        color: #000000;
+        background: var(--text-primary);   // rellena con el color del texto
+        color: var(--primary-bg);          // texto se invierte al fondo
         transform: translate(-3px, -3px);
-        box-shadow: 8px 8px 0 0 #ffffff;
+        box-shadow: 8px 8px 0 0 var(--card-shadow-color);
       }
     }
 
+    // Botón secundario — idéntico al primario en estilo neobrutalist
     .btn-secondary {
       background: transparent;
-      color: #fff;
+      color: var(--text-primary);
       padding: 1rem 2rem;
-      border: 2px solid #fff;
+      border: 2px solid var(--card-border-color);
       border-radius: 0;
       font-weight: bold;
       cursor: pointer;
-      box-shadow: 5px 5px 0 0 #ffffff;
-      transition: all 0.2s ease;
-      
+      box-shadow: 5px 5px 0 0 var(--card-shadow-color);
+      transition: all 0.2s ease, background-color 0.3s ease,
+                  color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+
       &:hover {
-        background: #fff;
-        color: #000;
+        background: var(--text-primary);
+        color: var(--primary-bg);
         transform: translate(-3px, -3px);
-        box-shadow: 8px 8px 0 0 #ffffff;
+        box-shadow: 8px 8px 0 0 var(--card-shadow-color);
       }
     }
   }
 
+  // ── Visual / placeholder ──────────────────────────────────────────────────────
   .hero-visual {
     display: flex;
     justify-content: center;
     align-items: center;
-    
+
     .effect-placeholder {
       width: 400px;
       height: 400px;
@@ -94,12 +115,13 @@
     }
   }
 
+  // ── Responsive ───────────────────────────────────────────────────────────────
   @media (max-width: 992px) {
     .hero-container {
       grid-template-columns: 1fr;
       text-align: center;
     }
-    
+
     .hero-buttons {
       justify-content: center;
     }
@@ -110,3 +132,4 @@
     }
   }
 }
+

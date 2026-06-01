@@ -22,7 +22,7 @@ const services = [
   },
   {
     icon: <CheckCircle size={32} />,
-    title: "QA & Testing",
+    title: "Quality Assurance (QA) & Testing",
     desc: "Pruebas rigurosas que garantizan la estabilidad del software y un despliegue sin fallas."
   },
   {
@@ -36,7 +36,7 @@ const methodologySteps = [
   { step: "1", title: "Discovery / Relevamiento" },
   { step: "2", title: "Arquitectura / Diseño Técnico" },
   { step: "3", title: "Sprints / Desarrollo Scrum" },
-  { step: "4", title: "QA / Trazabilidad" },
+  { step: "4", title: "Quality Assurance (QA) / Trazabilidad" },
   { step: "5", title: "Entrega + Documentación" },
 ];
 

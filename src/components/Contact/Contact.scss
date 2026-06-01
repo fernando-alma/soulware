@@ -4,18 +4,27 @@
   color: var(--text-primary);
   font-family: 'Roboto', sans-serif;
   transition: background-color 0.3s ease, color 0.3s ease;
+  overflow-x: hidden;
+  box-sizing: border-box;
   
   .contact-container {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 4rem;
     max-width: 1200px;
+    width: 100%;
     margin: 0 auto;
     padding: 0 20px;
+    box-sizing: border-box;
 
     @media (max-width: 992px) {
       grid-template-columns: 1fr;
       gap: 3rem;
+    }
+
+    @media (max-width: 576px) {
+      padding: 0 16px;
+      gap: 2rem;
     }
   }
 
@@ -112,9 +121,17 @@
     padding: 3rem;
     box-shadow: 8px 8px 0px var(--card-shadow-color);
     transition: background-color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+    box-sizing: border-box;
+    width: 100%;
+    min-width: 0;
 
     @media (max-width: 640px) {
-      padding: 2rem 1.5rem;
+      padding: 2rem 1.25rem;
+      box-shadow: 5px 5px 0px var(--card-shadow-color);
+    }
+
+    @media (max-width: 400px) {
+      padding: 1.5rem 1rem;
     }
 
     .clean-form {
@@ -145,6 +162,9 @@
           transition: border-color 0.3s ease, background-color 0.3s ease, color 0.3s ease;
           background: var(--primary-bg);
           color: var(--text-primary);
+          box-sizing: border-box;
+          width: 100%;
+          max-width: 100%;
 
           &:focus {
             outline: none;

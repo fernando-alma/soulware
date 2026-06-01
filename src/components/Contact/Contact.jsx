@@ -2,7 +2,26 @@ import React from 'react';
 import SocialLinks from '../SocialLinks/SocialLinks';
 import './Contact.scss';
 
+const CONTACT_EMAIL = 'contacto@soulware.com.ar';
+
 const Contact = () => {
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const form = e.target;
+    const nombre = form.querySelector('input[type="text"]').value;
+    const email = form.querySelector('input[type="email"]').value;
+    const telefono = form.querySelector('input[type="tel"]').value;
+    const servicio = form.querySelector('select').value;
+    const mensaje = form.querySelector('textarea').value;
+
+    const subject = encodeURIComponent(`Consulta de proyecto - ${nombre}`);
+    const body = encodeURIComponent(
+      `Nombre: ${nombre}\nTeléfono: ${telefono}\nCorreo: ${email}\nServicio: ${servicio}\n\nMensaje:\n${mensaje}`
+    );
+
+    window.location.href = `mailto:${CONTACT_EMAIL}?subject=${subject}&body=${body}`;
+  };
+
   return (
     <section className="contact-section bg-a-black" id="contacto">
       <div className="container contact-container">
@@ -16,7 +35,12 @@ const Contact = () => {
             <p><strong>Primera reunión sin costo</strong>, para conocer más acerca de tus proyectos.</p>
             <p><strong>Acuerdos de Confidencialidad.</strong></p>
           </div>
-          <button className="btn-primary highlight-btn">Agenda una reunión sin costo</button>
+          <a
+            href={`mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent('Quiero agendar una reunión sin costo')}`}
+            className="btn-primary highlight-btn"
+          >
+            Agenda una reunión sin costo
+          </a>
 
           <div className="location-info">
             <h4>Desde Argentina para el Mundo</h4>
@@ -29,7 +53,7 @@ const Contact = () => {
         </div>
 
         <div className="contact-form-wrapper">
-          <form className="clean-form" onSubmit={(e) => e.preventDefault()}>
+          <form className="clean-form" onSubmit={handleSubmit}>
             <div className="form-group">
               <label>Nombre completo:</label>
               <input type="text" placeholder="" required />
@@ -71,3 +95,4 @@ const Contact = () => {
 };
 
 export default Contact;
+

@@ -17,7 +17,7 @@ const Hero = () => {
         </div>
         <div className="hero-visual">
           <div className="effect-placeholder">
-            {/* Espacio vacío para el efecto posterior solicitado por el usuario */}
+            { }
           </div>
         </div>
       </div>

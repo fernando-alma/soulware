@@ -28,13 +28,14 @@ $card-transition: transform 0.22s ease, box-shadow 0.22s ease, background-color 
   flex-direction: column;
   width: 100%;
   min-height: $card-min-height;
-  background-color: $card-bg;
+  background-color: $card-bg;   // var(--primary-bg) = #fff light / #000 dark
   color: $card-color;
   border: $card-border;
   border-radius: $card-radius;
   box-shadow: $card-shadow;
   font-family: $card-font;
   transition: $card-transition;
+  box-sizing: border-box;
 
   // ── Hover universal: slide izquierda + sombra ampliada ────────────────────
   &:hover {
@@ -49,7 +50,7 @@ $card-transition: transform 0.22s ease, box-shadow 0.22s ease, background-color 
 
   &.card--featured {
     border-width: 3px;
-    box-shadow: 8px 8px 0 0 #ffffff;
+    box-shadow: 8px 8px 0 0 var(--card-shadow-color);
 
     &:hover {
       box-shadow: $card-shadow-hover;

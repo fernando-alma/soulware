@@ -26,7 +26,7 @@ const teamMembers = [
     name: 'Juan Bisaguirre Livellara',
     role: 'Backend Engineer',
     description:
-      'Experto en APIs RESTful, bases de datos relacionales y diseño de microservicios. Enfocado en rendimiento, seguridad y trazabilidad de sistemas críticos.',
+      'Desarrollador full-stack con enfoque en ciberseguridad. Especialista en React, Node.js y protección de datos. Diseña soluciones web robustas, eficientes y seguras.',
     portfolio: 'https://www.linkedin.com/in/juan-anibal-bisaguirre-livellara/',
     initials: 'JB',
   },
@@ -34,15 +34,23 @@ const teamMembers = [
     name: 'Rocío Aguirre Cerullo',
     role: 'Project Manager y QA',
     description:
-      'Diseña interfaces que equilibran estética y usabilidad. Domina Figma, sistemas de diseño y micro-animaciones orientadas a la conversión.',
+      'Project Manager IT y QA con enfoque en análisis normativo y trazabilidad. Optimiza la comunicación, mitiga riesgos regulatorios y asegura la calidad y documentación del proyecto.',
     portfolio: 'https://www.linkedin.com/in/rocio-aguirre-cerullo/',
     initials: 'RAC',
+  },
+  {
+    name: 'Camila Alma',
+    role: 'Diseñadora Gráfica',
+    description:
+      'Diseñadora freelance enfocada en el desarrollo visual de marcas. Conecta la identidad de tu empresa con su público ideal a través de diseño, fotografía y estrategia.',
+    portfolio: 'https://www.linkedin.com/in/calma-dise%C3%B1o-gr%C3%A1fico-/',
+    initials: 'CA',
   },
 ];
 
 const Team = () => {
   return (
-    <section className="team-section" id="equipo">
+    <section className="team-section" id="quienes-somos">
       <div className="container">
         {/* Header */}
         <div className="team-header">
