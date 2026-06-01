@@ -9,7 +9,7 @@ WORKDIR /app
 COPY package*.json ./
 
 # Instalar dependencias necesarias para compilar el frontend
-RUN npm ci
+RUN npm install
 
 # Copiar los archivos necesarios para la compilación del Frontend
 COPY src/ ./src
