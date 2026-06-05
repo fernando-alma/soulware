@@ -2,12 +2,17 @@ import React, { useState } from 'react';
 import { Menu, X } from 'lucide-react';
 import ThemeToggle from '../ThemeToggle/ThemeToggle';
 import { useTheme } from '../../context/ThemeContext';
+// Solo el logo negro (el .svg blanco estaba vacío — sin paths)
+// En dark mode se invierte a blanco mediante CSS filter.
 import logoSvg from '../../assets/header/ISOLOGO-TRANSPARENTE-negro.svg';
 import './Navbar.scss';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const { theme } = useTheme();
+
+  // Logo negro → dark mode: invert(1) = blanco | light mode: sin filtro
+  const logoFilter = theme === 'dark' ? 'invert(1)' : 'none';
 
   const handleSmoothScroll = (e, targetId) => {
     e.preventDefault();
@@ -25,7 +30,8 @@ const Navbar = () => {
           <img
             src={logoSvg}
             alt="Soulware isologo"
-            className={`logo-img${theme === 'dark' ? ' logo-img--dark' : ''}`}
+            className="logo-img"
+            style={{ filter: logoFilter }}
           />
           <h2>Soulware</h2>
         </div>

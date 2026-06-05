@@ -1,8 +1,12 @@
 // ─────────────────────────────────────────────────────────────────────────────
 // Services.scss
-// Sección Servicios + Metodología de Trabajo.
+// Sección Servicios + Carrusel nativo + Metodología de Trabajo.
 // Dinámico: adaptable a Light / Dark Mode.
 // ─────────────────────────────────────────────────────────────────────────────
+
+// CARD_GAP debe coincidir con el valor JS: 24px
+$card-gap: 24px;
+
 
 .services-methodology {
   padding: 100px 0;
@@ -11,15 +15,14 @@
   font-family: 'Roboto', sans-serif;
   transition: background-color 0.3s ease, color 0.3s ease;
 
-  // ── Grid de servicios — 4 columnas ────────────────────────────────────────
+  // ── Grid de servicios principales — 4 columnas ────────────────────────────
   .services-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    grid-auto-rows: 1fr;          // TODAS las filas con la misma altura
+    grid-auto-rows: 1fr;
     gap: 1.75rem;
     margin-bottom: 5rem;
 
-    // Cada card ocupa el 100% de su celda, sin min-height propio
     .card {
       width: 100%;
       height: 100%;
@@ -33,7 +36,7 @@
 
     @media (max-width: 768px) {
       grid-template-columns: 1fr;
-      grid-auto-rows: auto;       // en móvil, cada card tiene su altura natural
+      grid-auto-rows: auto;
     }
   }
 
@@ -48,6 +51,128 @@
 
   .service-title {
     text-align: center;
+  }
+
+  // ── Carrusel nativo ───────────────────────────────────────────────────────
+  .carousel-section {
+    margin-bottom: 5rem;
+
+    .methodology-title {
+      font-family: 'Roboto', sans-serif;
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: var(--text-primary);
+      margin-bottom: 2rem;
+      text-align: center;
+      transition: color 0.3s ease;
+    }
+  }
+
+  .carousel-viewport {
+    overflow: hidden;
+    width: 100%;
+    // Importante: sin padding lateral para que los clones no asomen
+    position: relative;
+    cursor: grab;
+
+    &:active {
+      cursor: grabbing;
+    }
+  }
+
+  .carousel-track {
+    display: flex;
+    // gap y transition se aplican inline desde React para sincronizar
+    // con el STEP calculado dinámicamente
+    will-change: transform;
+  }
+
+  .carousel-card {
+    // Ancho controlado inline por React (dinámico según viewport)
+    // min-width también se aplica inline
+    box-sizing: border-box;
+    flex-shrink: 0;
+
+    background: var(--glass-bg);
+    border: 2px solid var(--card-border-color);
+    padding: 2rem 1.5rem;
+    border-radius: 0;
+    transition:
+      background-color 0.3s ease,
+      border-color 0.3s ease,
+      box-shadow 0.25s ease,
+      transform 0.25s ease;
+
+    &:hover {
+      transform: translate(-3px, -3px);
+      box-shadow: 6px 6px 0 0 var(--card-shadow-color);
+    }
+
+    &__icon {
+      color: var(--text-primary);
+      margin-bottom: 1rem;
+      display: flex;
+      justify-content: center;
+      transition: color 0.3s ease;
+    }
+
+    &__title {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--text-primary);
+      margin-bottom: 0.75rem;
+      text-align: center;
+      font-family: 'Roboto', sans-serif;
+      transition: color 0.3s ease;
+    }
+
+    &__desc {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      line-height: 1.55;
+      text-align: center;
+      font-family: 'Roboto', sans-serif;
+      transition: color 0.3s ease;
+    }
+  }
+
+  // ── Controles del carrusel ────────────────────────────────────────────────
+  .carousel-controls {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 2rem;
+  }
+
+  .carousel-btn {
+    background: transparent;
+    border: 2px solid var(--card-border-color);
+    color: var(--text-primary);
+    width: 44px;
+    height: 44px;
+    border-radius: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 4px 4px 0 0 var(--card-shadow-color);
+    transition:
+      background-color 0.2s ease,
+      color 0.2s ease,
+      transform 0.15s ease,
+      box-shadow 0.15s ease;
+
+    &:hover {
+      background: var(--text-primary);
+      color: var(--primary-bg);
+      transform: translate(-2px, -2px);
+      box-shadow: 6px 6px 0 0 var(--card-shadow-color);
+    }
+
+    &:active {
+      transform: translate(1px, 1px);
+      box-shadow: 0 0 0 0 var(--card-shadow-color);
+    }
   }
 
   // ── Metodología — flowchart original ─────────────────────────────────────
@@ -74,10 +199,17 @@
       border: 2px solid var(--card-border-color);
       padding: 1.5rem 1rem;
       border-radius: 0;
+      // flex: 1 → TODAS las celdas del flowchart misma anchura (fix QA card)
       flex: 1;
+      min-width: 0;
       text-align: center;
       position: relative;
-      transition: background-color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease, transform 0.25s ease;
+      box-sizing: border-box;
+      transition:
+        background-color 0.3s ease,
+        border-color 0.3s ease,
+        box-shadow 0.3s ease,
+        transform 0.25s ease;
 
       &:hover {
         background: var(--glass-bg);
@@ -125,6 +257,8 @@
   }
 
   // ── Responsive ────────────────────────────────────────────────────────────
+  // El ancho de las carousel-card lo calcula React dinámicamente.
+  // En móviles el ResizeObserver ya reduce visibleCount a 1.
   @media (max-width: 1024px) {
     .methodology-section .flowchart {
       flex-direction: column;
@@ -136,6 +270,7 @@
 
       .flow-step {
         width: 100%;
+        flex: none;
       }
     }
   }

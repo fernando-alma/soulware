@@ -4,8 +4,6 @@
   align-items: center;
   padding-top: 80px; /* offset navbar */
 
-  // El fondo ya lo gestiona .bg-a-black → var(--primary-bg)
-
   .hero-container {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -22,14 +20,14 @@
     font-weight: 900;
     line-height: 1.15;
     margin-bottom: 1.5rem;
-    color: var(--text-primary);        // #000 en light / #fff en dark
+    color: var(--text-primary);
     transition: color 0.3s ease;
   }
 
   // ── Subtexto ─────────────────────────────────────────────────────────────────
   p {
     font-size: 1.1rem;
-    color: var(--text-muted);          // rgba oscuro en light / rgba claro en dark
+    color: var(--text-muted);
     margin-bottom: 2.5rem;
     line-height: 1.6;
     transition: color 0.3s ease;
@@ -51,16 +49,16 @@
       }
     }
 
-    // Botón primario — fondo transparente, borde y texto del tema
+    // Botón primario — usa variables del tema para dark/white mode
     .btn-primary {
-      background: transparent;
-      color: var(--text-primary);
+      background: var(--btn-primary-bg);
+      color: var(--btn-primary-text);
       padding: 1rem 2rem;
-      border: 2px solid var(--card-border-color);
+      border: 2px solid var(--btn-primary-border);
       border-radius: 0;
       font-weight: bold;
       cursor: pointer;
-      box-shadow: 5px 5px 0 0 var(--card-shadow-color);
+      box-shadow: 5px 5px 0 0 var(--btn-primary-shadow);
       transition: all 0.2s ease, background-color 0.3s ease,
                   color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
       text-decoration: none;
@@ -69,14 +67,14 @@
       justify-content: center;
 
       &:hover {
-        background: var(--text-primary);   // rellena con el color del texto
-        color: var(--primary-bg);          // texto se invierte al fondo
+        background: var(--btn-primary-text);
+        color: var(--btn-primary-bg);
         transform: translate(-3px, -3px);
-        box-shadow: 8px 8px 0 0 var(--card-shadow-color);
+        box-shadow: 8px 8px 0 0 var(--btn-primary-shadow);
       }
     }
 
-    // Botón secundario — idéntico al primario en estilo neobrutalist
+    // Botón secundario — transparente, borde del tema
     .btn-secondary {
       background: transparent;
       color: var(--text-primary);
@@ -102,16 +100,22 @@
     }
   }
 
-  // ── Visual / placeholder ──────────────────────────────────────────────────────
+  // ── Logo Visual ──────────────────────────────────────────────────────────────
   .hero-visual {
     display: flex;
     justify-content: center;
     align-items: center;
 
-    .effect-placeholder {
-      width: 400px;
-      height: 400px;
-      /* Empty box as requested */
+    .hero-logo-img {
+      width: 100%;
+      max-width: 420px;
+      height: auto;
+      object-fit: contain;
+      display: block;
+      margin: 0 auto;
+      // Suave drop-shadow para resaltar en ambos modos
+      filter: drop-shadow(0 8px 32px rgba(0,0,0,0.18));
+      transition: filter 0.3s ease;
     }
   }
 
@@ -126,10 +130,8 @@
       justify-content: center;
     }
 
-    .hero-visual .effect-placeholder {
-      width: 300px;
-      height: 300px;
+    .hero-visual .hero-logo-img {
+      max-width: 280px;
     }
   }
 }
-

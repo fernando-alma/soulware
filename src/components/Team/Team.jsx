@@ -32,17 +32,17 @@ const teamMembers = [
   },
   {
     name: 'Rocío Aguirre Cerullo',
-    role: 'Project Manager y QA',
+    role: 'Project Manager & QA',
     description:
       'Project Manager IT y QA con enfoque en análisis normativo y trazabilidad. Optimiza la comunicación, mitiga riesgos regulatorios y asegura la calidad y documentación del proyecto.',
     portfolio: 'https://www.linkedin.com/in/rocio-aguirre-cerullo/',
-    initials: 'RAC',
+    initials: 'RA',
   },
   {
     name: 'Camila Alma',
-    role: 'Diseñadora Gráfica',
+    role: 'Lic. en Diseño - Branding & Social Media',
     description:
-      'Diseñadora freelance enfocada en el desarrollo visual de marcas. Conecta la identidad de tu empresa con su público ideal a través de diseño, fotografía y estrategia.',
+      'Especialista en branding, comunicación visual y estrategias digitales. Acompaña marcas y empresas en la construcción de identidades sólidas que fortalecen su posicionamiento y potencian su crecimiento.',
     portfolio: 'https://www.linkedin.com/in/calma-dise%C3%B1o-gr%C3%A1fico-/',
     initials: 'CA',
   },

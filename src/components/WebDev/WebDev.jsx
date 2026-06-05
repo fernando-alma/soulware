@@ -25,9 +25,10 @@ const features = [
 ];
 
 const sliderImages = [
-  "https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
-  "https://images.unsplash.com/photo-1498050108023-c5249f4df085?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
-  "https://images.unsplash.com/photo-1555066931-4365d14bab8c?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
+  { src: '/gmstore.png', label: 'GamerStore' },
+  { src: '/blogtermetsa.png', label: 'Termet SA' },
+  { src: '/dicomvisor.png', label: 'Visualizador Dicom' },
+  { src: '/aiproyecto.png', label: 'Ai Proyectos' },
 ];
 
 const WebDev = () => {
@@ -44,7 +45,7 @@ const WebDev = () => {
     <section className="webdev bg-b-dots-radial">
       <div className="container webdev-container">
         <div className="webdev-content">
-          <h2>Desarrollo web a medida</h2>
+          <h2>Desarrollo a medida</h2>
           <div className="features-grid">
             {features.map((feat, idx) => (
               <div key={idx} className="feature-item">
@@ -55,10 +56,21 @@ const WebDev = () => {
           </div>
         </div>
         <div className="webdev-slider">
-          <div className="slider-wrapper" style={{ transform: `translateY(-${currentImg * 100}%)` }}>
-            {sliderImages.map((src, idx) => (
+          <div
+            className="slider-wrapper"
+            style={{ transform: `translateY(-${currentImg * 100}%)` }}
+          >
+            {sliderImages.map((project, idx) => (
               <div key={idx} className="slide">
-                <img src={src} alt={`Proyecto ${idx + 1}`} />
+                <img src={project.src} alt={project.label} />
+                <a
+                  href={project.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="slide-caption"
+                >
+                  {project.label} →
+                </a>
               </div>
             ))}
           </div>

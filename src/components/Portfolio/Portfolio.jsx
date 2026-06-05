@@ -64,7 +64,7 @@ const Portfolio = () => {
   return (
     <section className="portfolio bg-a-black" id="portfolio">
       <div className="container">
-        <h2 className="section-title">Proyectos con Sello Soulware</h2>
+        <h2 className="section-title">Proyectos con ADN Soulware</h2>
 
         {/* ── Proyectos ── */}
         <div className="portfolio-grid">

@@ -6,6 +6,8 @@
   transition: background-color 0.3s ease, color 0.3s ease;
   overflow-x: hidden;
   box-sizing: border-box;
+  width: 100%;
+  max-width: 100%;
   
   .contact-container {
     display: grid;
